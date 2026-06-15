@@ -5,8 +5,8 @@ int main() {
     int N;
     cin >> N;
 
-    vector<char> vertices(N);
-    for (int i = 0; i < N; i++) cin >> vertices[i];
+    vector<char> labels(N);
+    for (int i = 0; i < N; i++) cin >> labels[i];
 
     vector<vector<int>> matrix(N, vector<int>(N));
     for (int i = 0; i < N; i++)
@@ -15,13 +15,13 @@ int main() {
 
     cout << "Adjacency List:" << endl;
     for (int i = 0; i < N; i++) {
-        cout << vertices[i] << " -> ";
+        cout << labels[i] << " -> ";
         bool hasEdge = false;
         bool first = true;
         for (int j = 0; j < N; j++) {
             if (matrix[i][j] > 0) {
                 if (!first) cout << ", ";
-                cout << "(" << vertices[j] << "," << matrix[i][j] << ")";
+                cout << "(" << labels[j] << "," << matrix[i][j] << ")";
                 first = false;
                 hasEdge = true;
             }
@@ -29,5 +29,6 @@ int main() {
         if (!hasEdge) cout << "-";
         cout << endl;
     }
+
     return 0;
 }
